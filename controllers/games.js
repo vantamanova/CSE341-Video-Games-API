@@ -33,8 +33,8 @@ const create = async (req, res) => {
     platform: req.body.platform,
     releaseDate: req.body.releaseDate,
     developer: req.body.developer,
-    publisher: req.body.publisher,
-    rating: req.body.rating
+    rating: req.body.rating,
+    priceUSD: req.body.priceUSD,
   };
 
   // Insert the game into the database
@@ -60,16 +60,16 @@ const update = async (req, res) => {
     platform: req.body.platform,
     releaseDate: req.body.releaseDate,
     developer: req.body.developer,
-    publisher: req.body.publisher,
-    rating: req.body.rating
+    rating: req.body.rating,
+    priceUSD: req.body.priceUSD,
   };
   const response = await mongodb
     .getDatabase()
     .collection("games")
-    .replaceOne({ _id: gameId }, game);
+    .updateOne({ _id: gameId }, { $set: game });
 
   if (response.modifiedCount > 0) {
-    res.status(204).send();
+    res.status(200).json({ message: "Game updated successfully" });
   } else {
     res.status(500).json(response.error || "Some error occurred while updating the game.");
   }
@@ -80,7 +80,7 @@ const remove = async (req, res) => {
   const gameId = new ObjectId(req.params.id);
   const response = await mongodb.getDatabase().collection("games").deleteOne({ _id: gameId });
   if (response.deletedCount > 0) {
-    res.status(204).send();
+    res.status(200).json({ message: "Game deleted successfully" });
   } else {
     res.status(500).json(response.error || "Some error occurred while deleting the game.");
   }

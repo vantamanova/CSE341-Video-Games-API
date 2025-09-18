@@ -18,12 +18,12 @@ Content-Type: application/json
     "platform": "PC, Xbox Series X/S",
     "releaseDate": "2023-09-06",
     "developer": "Bethesda Game Studios",
-    "rating": 8,
+    "rating": 11,
     "priceUSD": 59.99
 }
 
 ### Update an existing game
-PUT http://localhost:3000/games/68ca80ef46c434e1d181b611
+PUT http://localhost:3000/games/68ca80ef46c434e1d181b611a
 Content-Type: application/json
 
 {
@@ -37,7 +37,7 @@ Content-Type: application/json
 }             
 
 ### Delete a game
-DELETE http://localhost:3000/games/68cbb8300c56aa12d57293ca
+DELETE http://localhost:3000/games/68ca80ef46c434e1d181b611a
 Content-Type: application/json
 
 
@@ -49,7 +49,7 @@ GET http://localhost:3000/users
 Content-Type: application/json
 
 ### Get a user by ID
-GET http://localhost:3000/users/68baa22497af4b860190a776
+GET http://localhost:3000/users/68cbae05c437c13b7db1f493a
 Content-Type: application/json
 
 ### Create a new user
@@ -58,7 +58,7 @@ Content-Type: application/json
 
 {
     "username": "xsdilm",
-    "email": "xsdilm@gmail.com",
+    "email": "xsdil@mgmail.com",
     "dateOfBirth": "2000-01-15",    
     "favoriteGenre": "RPG",
     "platformPreference": "PlayStation",
@@ -71,7 +71,7 @@ Content-Type: application/json
 }
 
 ### Update an existing user
-PUT http://localhost:3000/users/68c293225674a00bb5afea7a
+PUT http://localhost:3000/users/68cbae05c437c13b7db1f493a
 Content-Type: application/json
 
 {
@@ -89,5 +89,5 @@ Content-Type: application/json
 }  
 
 ### Delete a user
-DELETE http://localhost:3000/users/68c292d77171eefd5f00dd7e
+DELETE http://localhost:3000/users/68cbae05c437c13b7db1f493a
 Content-Type: application/json

@@ -1,6 +1,7 @@
 // Import express and create a router
 const express = require("express");
 const router = express.Router();
+const validation = require('../middlewares/validation');
 
 // handles logic for each route)
 const gamesController = require("../controllers/games");
@@ -20,13 +21,17 @@ router.get("/:id", (req, res) => {
 // Create a new game
 router.post("/", (req, res) => {
     //#swagger.tags = ["Games Route"]
-    gamesController.create(req, res);
+    validation.saveGame(req, res, () => {
+        gamesController.create(req, res);
+    });
 });
 
 // Update  game by id
 router.put("/:id", (req, res) => {
     //#swagger.tags = ["Games Route"]
-    gamesController.update(req, res);
+    validation.saveGame(req, res, () => {
+        gamesController.update(req, res);
+    });
 });
 
 // Delete a game by id

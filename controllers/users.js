@@ -16,6 +16,10 @@ const getAll = async (req, res) => {
 
 // GET one user
 const getSingle = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) { // Validation for ObjectId
+    res.status(400).json('Must use a valid user id.');
+    return;
+  }
   const userId = new ObjectId(req.params.id);
   const result = await mongodb.getDatabase().collection("users").find({ _id: userId });
   result.toArray().then((users) => {
@@ -51,6 +55,10 @@ const create = async (req, res) => {
 
 // UPDATE a user
 const update = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) { // Validation for ObjectId
+    res.status(400).json('Must use a valid user id to update a user.');
+    return;
+  }
   const userId = new ObjectId(req.params.id);
   const user = {
     firstName: req.body.firstName,
@@ -65,7 +73,7 @@ const update = async (req, res) => {
     .replaceOne({ _id: userId }, user);
 
   if (response.modifiedCount > 0) {
-    res.status(204).send();
+    res.status(200).json({ message: "User updated successfully" });
   } else {
     res.status(500).json(response.error || "Some error occurred while updating the user.");
   }
@@ -73,13 +81,17 @@ const update = async (req, res) => {
 
 // DELETE a user
 const remove = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) { // Validation for ObjectId
+    res.status(400).json('Must use a valid user id to delete a user.');
+    return;
+  }
   const userId = new ObjectId(req.params.id);
   const response = await mongodb.getDatabase().collection("users").deleteOne({ _id: userId });
   if (response.deletedCount > 0) {
-    res.status(204).send();
+    res.status(200).json({ message: "User deleted successfully" });
   } else {
     res.status(500).json(response.error || "Some error occurred while deleting the user.");
-  }
+  } 
 };
 
 module.exports = { getAll, create, getSingle, update, remove };

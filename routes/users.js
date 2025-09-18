@@ -1,6 +1,7 @@
 // Import express and create a router
 const express = require("express");
 const router = express.Router();
+const validation = require('../middlewares/validation');
 
 // handles the route logic
 const usersController = require("../controllers/users");
@@ -20,13 +21,17 @@ router.get("/:id", (req, res) => {
 // Create a new user
 router.post("/", (req, res) => {
     /* #swagger.tags = ['Users Route'] */
-    usersController.create(req, res);
+    validation.saveUser(req, res, () => {
+            usersController.create(req, res);
+        });
 });
 
 // Update user by id
 router.put("/:id", (req, res) => {
     /* #swagger.tags = ['Users Route'] */
-    usersController.update(req, res);
+    validation.saveUser(req, res, () => {
+            usersController.update(req, res);
+        });
 }); 
 
 // Delete a user by id

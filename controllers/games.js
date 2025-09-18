@@ -16,11 +16,15 @@ const getAll = async (req, res) => {
 
 // GET one game
 const getSingle = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) { // Validation for ObjectId
+    res.status(400).json('Must use a valid game id.');
+    return;
+  }
   const gameId = new ObjectId(req.params.id);
   const result = await mongodb.getDatabase().collection("games").find({ _id: gameId });
   result.toArray().then((games) => {
     res.setHeader("Content-Type", "application/json");
-    res.status(200).json(games[0]);
+    res.status(200).json(games[0]); 
   });
 };
 
@@ -53,6 +57,10 @@ const create = async (req, res) => {
 
 // UPDATE a game
 const update = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) { // Validation for ObjectId
+    res.status(400).json('Must use a valid game id to update a game.');
+    return;
+  }
   const gameId = new ObjectId(req.params.id);
   const game = {
     title: req.body.title,
@@ -77,7 +85,11 @@ const update = async (req, res) => {
 
 // DELETE a game
 const remove = async (req, res) => {
-  const gameId = new ObjectId(req.params.id);
+  if (!ObjectId.isValid(req.params.id)) { // Validation for ObjectId
+    res.status(400).json('Must use a valid game id to delete a game.');
+    return;
+  }
+  const gameId = new ObjectId(req.params.id); 
   const response = await mongodb.getDatabase().collection("games").deleteOne({ _id: gameId });
   if (response.deletedCount > 0) {
     res.status(200).json({ message: "Game deleted successfully" });

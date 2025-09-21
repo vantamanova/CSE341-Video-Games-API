@@ -3,15 +3,19 @@ const { ObjectId } = require("mongodb");
 
 // GET all users from the database
 const getAll = async (req, res) => {
-  const result = await mongodb
-    .getDatabase()      
-    .collection("users")      
-    .find();                  
+  try {
+    const result = await mongodb
+      .getDatabase("")
+      .collection("users")
+      .find()
+      .toArray();
 
-  // Convert result to array and send as JSON
-  result.toArray().then((users) => {
-    res.status(200).json(users);
-  });
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(result);
+  } catch (err) {
+    console.error("Error fetching users:", err);
+    res.status(500).json({ message: "Failed to fetch users." });
+  }
 };
 
 // GET one user

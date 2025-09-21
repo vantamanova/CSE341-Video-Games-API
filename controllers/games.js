@@ -3,15 +3,19 @@ const { ObjectId } = require("mongodb");
 
 // GET all games from the database
 const getAll = async (req, res) => {
-  const result = await mongodb
-    .getDatabase()        
-    .collection("games")  
-    .find();
+  try {
+    const result = await mongodb
+      .getDatabase()
+      .collection("games")
+      .find()
+      .toArray();
 
-  // Convert result to array and send as JSON
-  result.toArray().then((games) => {
-    res.status(200).json(games);
-  });
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(result);
+  } catch (err) {
+    console.error("Error fetching games:", err);
+    res.status(500).json({ message: "Failed to fetch games." });
+  }
 };
 
 // GET one game

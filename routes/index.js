@@ -11,7 +11,7 @@ router.use('/users', require('./users')); // All /users routes
 // Root test route
 router.get('/', (req, res) => {
   //#swagger.tags = ["Index Route"]
-  res.send('API is working! Try /games or /users');
+  res.send('API is working!');
 });
 
 module.exports = router;

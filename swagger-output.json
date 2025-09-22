@@ -49,25 +49,25 @@
               "type": "object",
               "properties": {
                 "title": {
-                  "example": "any"
+                  "example": "Starfield"
                 },
                 "genre": {
-                  "example": "any"
+                  "example": "Sci-Fi RPG"
                 },
                 "platform": {
-                  "example": "any"
+                  "example": "PC, Xbox Series X/S"
                 },
                 "releaseDate": {
-                  "example": "any"
+                  "example": "2023-09-06"
                 },
                 "developer": {
-                  "example": "any"
-                },
-                "publisher": {
-                  "example": "any"
+                  "example": "Bethesda Game Studios"
                 },
                 "rating": {
-                  "example": "any"
+                  "example": "9"
+                },
+                "priceUSD": {
+                  "example": "59.99"
                 }
               }
             }
@@ -125,25 +125,25 @@
               "type": "object",
               "properties": {
                 "title": {
-                  "example": "any"
+                  "example": "Horizon Forbidden West"
                 },
                 "genre": {
-                  "example": "any"
+                  "example": "Action RPG"
                 },
                 "platform": {
-                  "example": "any"
+                  "example": "PlayStation 4/5"
                 },
                 "releaseDate": {
-                  "example": "any"
+                  "example": "2022-02-18"
                 },
                 "developer": {
-                  "example": "any"
-                },
-                "publisher": {
-                  "example": "any"
+                  "example": "Guerrilla Games"
                 },
                 "rating": {
-                  "example": "any"
+                  "example": "9"
+                },
+                "priceUSD": {
+                  "example": "39.99"
                 }
               }
             }
@@ -205,20 +205,32 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
+                "username": {
+                  "example": "xsdilm"
                 },
                 "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
+                  "example": "xsdil@mgmail.com"
                 },
                 "dateOfBirth": {
-                  "example": "any"
+                  "example": "2000-01-15"
+                },
+                "favoriteGenre": {
+                  "example": "RPG"
+                },
+                "platformPreference": {
+                  "example": "PlayStation"
+                },
+                "hoursPlayedPerWeek": {
+                  "example": "10"
+                },
+                "ownedGames": {
+                  "example": "68baa22497af4b860190a776"
+                },
+                "isPremiumMember": {
+                  "example": true
+                },
+                "createdAt": {
+                  "example": "2025-09-18"
                 }
               }
             }
@@ -275,20 +287,32 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
+                "username": {
+                  "example": "zxsdilm"
                 },
                 "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
+                  "example": "zxsdilm@gmail.com"
                 },
                 "dateOfBirth": {
-                  "example": "any"
+                  "example": "2000-01-15"
+                },
+                "favoriteGenre": {
+                  "example": "Sports"
+                },
+                "platformPreference": {
+                  "example": "Xbox"
+                },
+                "hoursPlayedPerWeek": {
+                  "example": "10"
+                },
+                "ownedGames": {
+                  "example": "68baa22497af4b860190a776"
+                },
+                "isPremiumMember": {
+                  "example": false
+                },
+                "createdAt": {
+                  "example": "2025-09-18"
                 }
               }
             }

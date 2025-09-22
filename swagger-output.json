@@ -58,23 +58,23 @@
               "properties": {
                 "title": {
                   "type": "string",
-                  "example": "Horizon Forbidden West"
+                  "example": "Starfield"
                 },
                 "genre": {
                   "type": "string",
-                  "example": "Action RPG"
+                  "example": "Sci-Fi RPG"
                 },
                 "platform": {
                   "type": "string",
-                  "example": "PlayStation 4/5"
+                  "example": "PC, Xbox Series X/S"
                 },
                 "releaseDate": {
                   "type": "string",
-                  "example": "2022-02-18"
+                  "example": "2023-09-06"
                 },
                 "developer": {
                   "type": "string",
-                  "example": "Guerrilla Games"
+                  "example": "Bethesda Game Studios"
                 },
                 "rating": {
                   "type": "number",
@@ -350,11 +350,11 @@
               "properties": {
                 "username": {
                   "type": "string",
-                  "example": "xsdilm"
+                  "example": "zxsdilm"
                 },
                 "email": {
                   "type": "string",
-                  "example": "xsdil@mgmail.com"
+                  "example": "zxsdil@mgmail.com"
                 },
                 "dateOfBirth": {
                   "type": "string",

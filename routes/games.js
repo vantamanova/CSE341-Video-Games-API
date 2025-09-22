@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
         required: true,
         schema: {
             title: 'Starfield',
-            genre: 'Sci-Fi RPG,
+            genre: 'Sci-Fi RPG',
             platform: 'PC, Xbox Series X/S',
             releaseDate: '2023-09-06',
             developer: 'Bethesda Game Studios',

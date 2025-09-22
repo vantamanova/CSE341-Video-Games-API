@@ -36,11 +36,15 @@ const getSingle = async (req, res) => {
 const create = async (req, res) => {
   // Build a user object from request body
   const user = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    username: req.body.username,
     email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    dateOfBirth: req.body.dateOfBirth
+    dateOfBirth: req.body.dateOfBirth,
+    favoriteGenre: req.body.favoriteGenre,
+    platformPreference: req.body.platformPreference,
+    hoursPlayedPerWeek: req.body.hoursPlayedPerWeek,
+    ownedGames: req.body.ownedGames,
+    isPremiumMember: req.body.isPremiumMember,
+    createdAt: req.body.createdAt
   };
 
   // Insert the user into the database
@@ -65,11 +69,15 @@ const update = async (req, res) => {
   }
   const userId = new ObjectId(req.params.id);
   const user = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    username: req.body.username,
     email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    dateOfBirth: req.body.dateOfBirth
+    dateOfBirth: req.body.dateOfBirth,
+    favoriteGenre: req.body.favoriteGenre,
+    platformPreference: req.body.platformPreference,
+    hoursPlayedPerWeek: req.body.hoursPlayedPerWeek,
+    ownedGames: req.body.ownedGames,
+    isPremiumMember: req.body.isPremiumMember,
+    createdAt: req.body.createdAt
   };
   const response = await mongodb
     .getDatabase()

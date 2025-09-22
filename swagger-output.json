@@ -30,9 +30,15 @@
           "Games Route"
         ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -45,29 +51,38 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Add or update a game",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "title": {
-                  "example": "Starfield"
+                  "type": "string",
+                  "example": "Horizon Forbidden West"
                 },
                 "genre": {
-                  "example": "Sci-Fi RPG"
+                  "type": "string",
+                  "example": "Action RPG"
                 },
                 "platform": {
-                  "example": "PC, Xbox Series X/S"
+                  "type": "string",
+                  "example": "PlayStation 4/5"
                 },
                 "releaseDate": {
-                  "example": "2023-09-06"
+                  "type": "string",
+                  "example": "2022-02-18"
                 },
                 "developer": {
-                  "example": "Bethesda Game Studios"
+                  "type": "string",
+                  "example": "Guerrilla Games"
                 },
                 "rating": {
-                  "example": "9"
+                  "type": "number",
+                  "example": 9
                 },
                 "priceUSD": {
-                  "example": "59.99"
+                  "type": "number",
+                  "example": 59.99
                 }
               }
             }
@@ -103,6 +118,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
@@ -121,37 +139,49 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Add or update a game",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "title": {
+                  "type": "string",
                   "example": "Horizon Forbidden West"
                 },
                 "genre": {
+                  "type": "string",
                   "example": "Action RPG"
                 },
                 "platform": {
+                  "type": "string",
                   "example": "PlayStation 4/5"
                 },
                 "releaseDate": {
+                  "type": "string",
                   "example": "2022-02-18"
                 },
                 "developer": {
+                  "type": "string",
                   "example": "Guerrilla Games"
                 },
                 "rating": {
-                  "example": "9"
+                  "type": "number",
+                  "example": 9
                 },
                 "priceUSD": {
-                  "example": "39.99"
+                  "type": "number",
+                  "example": 59.99
                 }
               }
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"
@@ -172,8 +202,11 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"
@@ -187,9 +220,15 @@
           "Users Route"
         ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -202,34 +241,50 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Add a new user",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "username": {
+                  "type": "string",
                   "example": "xsdilm"
                 },
                 "email": {
+                  "type": "string",
                   "example": "xsdil@mgmail.com"
                 },
                 "dateOfBirth": {
+                  "type": "string",
                   "example": "2000-01-15"
                 },
                 "favoriteGenre": {
+                  "type": "string",
                   "example": "RPG"
                 },
                 "platformPreference": {
+                  "type": "string",
                   "example": "PlayStation"
                 },
                 "hoursPlayedPerWeek": {
-                  "example": "10"
+                  "type": "number",
+                  "example": 20
                 },
                 "ownedGames": {
-                  "example": ["68baa22497af4b860190a776"]
+                  "type": "array",
+                  "example": [
+                    "68baa22497af4b860190a776"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "isPremiumMember": {
+                  "type": "boolean",
                   "example": true
                 },
                 "createdAt": {
+                  "type": "string",
                   "example": "2025-09-18"
                 }
               }
@@ -260,12 +315,16 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "User ID"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
@@ -284,34 +343,50 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Add a new user",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "username": {
-                  "example": "zxsdilm"
+                  "type": "string",
+                  "example": "xsdilm"
                 },
                 "email": {
-                  "example": "zxsdilm@gmail.com"
+                  "type": "string",
+                  "example": "xsdil@mgmail.com"
                 },
                 "dateOfBirth": {
+                  "type": "string",
                   "example": "2000-01-15"
                 },
                 "favoriteGenre": {
-                  "example": "Sports"
+                  "type": "string",
+                  "example": "RPG"
                 },
                 "platformPreference": {
-                  "example": "Xbox"
+                  "type": "string",
+                  "example": "PlayStation"
                 },
                 "hoursPlayedPerWeek": {
-                  "example": "10"
+                  "type": "number",
+                  "example": 20
                 },
                 "ownedGames": {
-                  "example": ["68baa22497af4b860190a776"]
+                  "type": "array",
+                  "example": [
+                    "68baa22497af4b860190a776"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "isPremiumMember": {
-                  "example": false
+                  "type": "boolean",
+                  "example": true
                 },
                 "createdAt": {
+                  "type": "string",
                   "example": "2025-09-18"
                 }
               }
@@ -319,8 +394,11 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"
@@ -337,12 +415,16 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "User ID"
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"

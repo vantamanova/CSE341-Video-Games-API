@@ -224,7 +224,7 @@
                   "example": "10"
                 },
                 "ownedGames": {
-                  "example": "68baa22497af4b860190a776"
+                  "example": "[68baa22497af4b860190a776]"
                 },
                 "isPremiumMember": {
                   "example": true

@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const validation = require('../middlewares/validation');
+const {IsAuthenticated} = require("../middlewares/auth");
 
 // handles the route logic
 const usersController = require("../controllers/users");
@@ -26,7 +27,7 @@ router.get("/:id", (req, res) => {
 });
 
 // Create a new user
-router.post("/", (req, res) => {
+router.post("/", IsAuthenticated, (req, res) => {
     /* #swagger.tags = ['Users Route'] */
     /*  #swagger.parameters['body'] = {
         in: 'body',
@@ -51,7 +52,7 @@ router.post("/", (req, res) => {
 });
 
 // Update user by id
-router.put("/:id", (req, res) => {
+router.put("/:id", IsAuthenticated, (req, res) => {
     /* #swagger.tags = ['Users Route'] */
     /*  #swagger.parameters['body'] = {
         in: 'body',
@@ -76,7 +77,7 @@ router.put("/:id", (req, res) => {
 }); 
 
 // Delete a user by id
-router.delete("/:id", (req, res) => {
+router.delete("/:id", IsAuthenticated, (req, res) => {
     /* #swagger.tags = ['Users Route'] */
     /*  #swagger.parameters['id'] = {
         in: 'path',
